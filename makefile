@@ -4,10 +4,10 @@ stop:
 	docker stop $(shell docker ps -a -q)
 
 clean:
-	docker system prune -a
+	docker system prune -af --volumes
 
 enter:
 	docker exec -it $(target) sh
 
 dev: 
-	docker compose --env-file dev.env -f compose.dev.yaml up -d
+	docker compose --env-file .env.dev -f compose.dev.yaml up --build -d
