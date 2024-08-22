@@ -1,0 +1,31 @@
+name: Tests Frontend
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+    types: [opened, reopened, synchronize]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend.yaml'
+
+jobs:  
+  metadata-info:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show some metadata about the PR
+        run: |
+          INCOMING_BRANCH=${{ github.event.pull_request.base.ref }}
+          BASE_BRANCH=${{ github.event.pull_request.head.ref }}
+          echo "Base Branch: $BASE_BRANCH"
+          echo "Incoming Branch: $INCOMING_BRANCH"
+          echo "'Ghost' Commit: ${{ github.sha }}"
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run unit tests
+        run: cd frontend && npm run test
