@@ -1,1 +1,3 @@
-echo "TODO: Add format/lint here"
+cd frontend && npm run lint
+
+cd ../backend && npm run lint

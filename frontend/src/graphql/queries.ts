@@ -19,5 +19,5 @@ export const GETALLUSERS = gql`
       name
       roles
     }
-    }
+  }
 `;

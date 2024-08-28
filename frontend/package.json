@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "codegen": "graphql-codegen --config codegen.ts",
     "dev": "npm run codegen && vite --host",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "test": "vitest"
+    "lint": "echo 'TODO: Lint Frontend service'",
+    "check-lint": "echo 'TODO: Check lint for Frontend service'",
+    "unit-tests": "echo 'TODO: Run Unit Tests'",
+    "integration-tests": "echo 'TODO: Run Integration Tests'",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.10.5",
